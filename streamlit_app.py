@@ -33,8 +33,6 @@ my_data_row = my_cur.fetchone()
 streamlit.text("The fruit load list contains:")
 streamlit.text(my_data_row)
 
-
-
 my_cur.execute("select * from fruits_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")

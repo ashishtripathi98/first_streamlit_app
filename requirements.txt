@@ -1,1 +1,2 @@
-
+#requirements.txt
+snoflake-connector-python

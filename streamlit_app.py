@@ -65,7 +65,7 @@ try:
    back_from_function = get_fruityvice_data(fruity_choice)
    streamlit.dataframe(back_from_function)
    
-streamlit.header('Fruityvice Fruit!')
+streamlit.text('Fruityvice Fruit!')
 try:
   fruit_choice = streamlit.text_input('What fruit would you like to add..?')
   if not fruit_choice:

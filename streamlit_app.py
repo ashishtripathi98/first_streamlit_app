@@ -16,6 +16,8 @@ streamlit.text('🐔 Hard-Boiled Free-Range Egg')
 streamlit.text('🥑🍞 Avocado toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
+
+
  
 
  
@@ -37,6 +39,14 @@ def get_fruityvice_data(this_fruit_choice):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalized
+
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_data_row = my_cur.fetchone()
+streamlit.text("Hello from Snowflake:")
+streamlit.text(my_data_row)
+
 
 #new section to display fruityvice API
 
